@@ -1,0 +1,44 @@
+CREATE DATABASE cms;
+
+CREATE TABLE login(email VARCHAR(50) PRIMARY KEY, pass VARCHAR(30), role VARCHAR(10), time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP);
+CREATE TABLE station(st_id INTEGER PRIMARY KEY auto_increment, st_name VARCHAR(15), location VARCHAR(25), st_head VARCHAR(15));
+CREATE TABLE user(e_mail VARCHAR(30) PRIMARY KEY,u_name VARCHAR(25),phn_no VARCHAR(10),u_location VARCHAR(20),u_age INTEGER,time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP);
+CREATE TABLE officer(e_mail VARCHAR(30) PRIMARY KEY, of_name VARCHAR(25), phn_no VARCHAR(10), of_age INTEGER, st_id INTEGER, of_role VARCHAR(15),time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP);
+CREATE TABLE complaints(cmp_id INTEGER PRIMARY KEY, u_email VARCHAR(30), cmp_stmt VARCHAR(100), cmp_sts VARCHAR(10), type_of_incident VARCHAR(30), location VARCHAR(30), date_time TIMESTAMP);
+create table officerQuery(queryId INTEGER PRIMARY KEY auto_increment, complaintId INTEGER, complaintantEmail VARCHAR(50), msg VARCHAR(200));
+
+
+INSERT INTO LOGIN VALUES("admin1234@gmail.com","admin123","admin",current_timestamp());
+INSERT INTO user VALUES("avanthi123@gmail.com","avanthi123","9876543210","coimbatore",20,current_timestamp());
+INSERT INTO officer VALUES("deva@gmail.com", "Deva", "9877543210", 20, 1, "DCP", current_timestamp());
+INSERT INTO station(st_name,location,st_head) VALUES("B2 police station","coimbatore","deva@gmail.com");
+INSERT INTO complaints(u_email,cmp_stmt,cmp_sts,type_of_incident,location,date_time) VALUES("avanthi123@gmail.com","Missing my handbag","inprogress","robery","singanallur",'2023-02-05 8:20');
+
+
+
+
+
+//Airline
+create database ams;
+CREATE TABLE login(email VARCHAR(50) PRIMARY KEY, pass VARCHAR(30), role VARCHAR(10), time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP);
+CREATE TABLE user(e_mail VARCHAR(30) PRIMARY KEY,u_name VARCHAR(25),phn_no VARCHAR(10),u_age INTEGER,time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP);
+CREATE TABLE flights(id INTEGER PRIMARY KEY auto_increment,name VARCHAR(50), b_point VARCHAR(50), d_point VARCHAR(50), a_time TIMESTAMP , d_time TIMESTAMP);
+CREATE TABLE ticket(id INTEGER PRIMARY KEY auto_increment, amt float8, userId INTEGER, acc_no double, noOfSeats INTEGER, pay_sts VARCHAR(20));
+alter table ticket add column flight_id INTEGER;
+alter table flights add column amt INTEGER;
+alter table ticket drop column userid;
+alter table ticket add column user_email VARCHAR(50);
+update ticket set user_email = 'user123@gmail.com' where id=1;
+alter table ticket drop column acc_no;
+alter table ticket add column acc_no VARCHAR(50);
+update ticket set acc_no = '887654329887' where id=1;
+select * from ticket;
+
+INSERT INTO LOGIN VALUES("admin123@gmail.com","123","admin",current_timestamp());
+INSERT INTO LOGIN VALUES("user123@gmail.com","123","user",current_timestamp());
+INSERT INTO user VALUES("user123@gmail.com","uname","8996785123",20,current_timestamp());
+INSERT INTO flights(name,b_point,d_point,a_time,d_time) VALUES('Air India', 'Chennai','Coimbatore','2022-03-11 09:30', '2022-03-11 11:30');
+INSERT INTO flights(name,b_point,d_point,a_time,d_time) VALUES('Air India', 'Coimbatore','Chennai','2022-03-11 01:30', '2022-03-11 03:30');
+INSERT INTO ticket(amt, userId, acc_no, noOfSeats, pay_sts, flight_id) VALUES(10000, 1, 782762356621, 1, 'true',1);
+update flights set amt=10000 where id = 1;
+update flights set amt=10000 where id = 2;

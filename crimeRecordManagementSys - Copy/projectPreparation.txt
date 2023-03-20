@@ -1,0 +1,18 @@
+why did you choose this project?
+what is the objective of your project?
+what is tech stack used?
+Er diagram ?
+I was the soul developer of the project.
+what are the challenges faced?
+
+consurrency control
+ACID properties
+
+Scheduling
+Demand paging
+virtual memory, main memory
+semaphore, deadlock, role of OS, parts of OS
+fragmentation, segmentation, pagination
+
+layers, protocols, ping, dns, tcp vs udp
+hashing, collision avoidance, searching, sorting, data structures
